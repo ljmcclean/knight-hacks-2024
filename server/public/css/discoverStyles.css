@@ -14,13 +14,13 @@
 
 @font-face{
     font-family: 'sporting-strategy-regular';
-    src: url('/assets/fonts/SportingStrategy-BLdgG.ttf') format('ttf');
+    src: url("/assets/fonts/SportingStrategy-BLdgG.ttf") format('ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    background: #FF89FF;
+    background: #FF8988;
 }
 
 .content {
@@ -57,4 +57,14 @@ body {
 
 #profile-skill-list{
 
+}
+
+#discover-search {
+    width: 60rem;
+    margin: 1rem;
+    padding: 0.8rem 1.25rem;
+    border: none;
+    border-radius: 1rem;
+    background: #333;
+    font-size: 1.5rem;
 }
