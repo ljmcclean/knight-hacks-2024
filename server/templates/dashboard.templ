@@ -1,23 +1,58 @@
 package templates
 
 import (
-	"github.com/ljmcclean/knight-hacks-2024/server/templates/components"
-	"github.com/ljmcclean/knight-hacks-2024/services"
+"github.com/ljmcclean/knight-hacks-2024/server/templates/components"
+"github.com/ljmcclean/knight-hacks-2024/services"
 )
 
 templ Dashboard(profile *services.Profile) {
-	@components.Document() {
-		@components.Head("Dashboard")
-		<body>
-			<h1>Dashboard</h1>
-			<p>
-				Name: { profile.Name }
-				<br/>
-				Email: { profile.Email }
-			</p>
-			<form action="/logout" method="post">
-				<button>Log out</button>
-			</form>
-		</body>
-	}
+@components.Document() {
+@components.Head("Dashboard")
+<div id="sidebar">
+<div id="profile">
+<h1 id="profile-name">Matthew Neet</h1>
+<h2 id="profile-skills">Your Projects:</h2>
+<button id="view-profile-btn">View Projects</button>
+<ul id="profile-project-list">
+<li>Project 1</li>
+<li>Project 2</li>
+<li>Project 3</li>
+</ul>
+</div>
+</div>
+<form action="/edit-profile" method="post">
+<button>Edit</button>
+</form>
+<form action="/logout" method="post">
+<button>Sign Out</button>
+</form>
+<body>
+<div id="person-info">
+<p>
+Name: { profile.Name }
+<br/>
+Email: { profile.Email }
+<br/>
+</p>
+</div>
+<div id="desc-box">
+<p>
+About Me: { profile.Name }
+<br/>
+</p>
+</div>
+<div id="skills-box">
+<p>
+My Skills: { profile.Name }
+<br/>
+</p>
+</div>
+<div id="location-id">
+<p>
+My Skills: { profile.Name }
+<br/>
+</p>
+</div>
+</body>
+}
 }

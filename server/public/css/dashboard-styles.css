@@ -1,0 +1,58 @@
+:root {
+
+    /* Color Palette */
+    --clr-txt:rgb(0, 0, 0);
+    --clr-bg: light(#f8f8f8);
+    --clr-p: #f9a648;
+    --clr-a: #f0f;
+    
+    /* Font Sizes */
+    --fs-s: clamp(1rem, 3vw, 1.5rem);
+    --fs-l: clamp(2.5rem, 10vw, 5rem);
+    --fs-xl: clamp(2rem, 18vw, 10rem);
+    }
+    
+    @font-face{
+    font-family: 'sporting-strategy-regular';
+    src: url("/assets/fonts/SportingStrategy-BLdgG.ttf") format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    }
+    body {
+    background: #FF8988;
+    flex-wrap: wrap;
+    }
+    /* Sidebar styles */
+    #sidebar {
+    height: 100vh;
+    width: 20%;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+    background: white;
+    color: var(--clr-txt);
+    font-family:'sporting-strategy-regular';
+    }
+    #person-info {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    flex-wrap: wrap;
+    }
+    #desc-box {
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    }
+    #skills-box {
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    }
+    #location-id {
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    }
