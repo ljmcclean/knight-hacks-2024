@@ -24,10 +24,10 @@ var validProjectColumns = map[string]bool{
 
 func (s *postgreSQL) PostProject(ctx context.Context, project *services.Project) error {
 	query := `
-	INSERT INTO project (id, name, description, is_remote, location, skills, user_id)
-	VALUES ($1, $2, $3, $4, $5, $6, $7);`
+	INSERT INTO project (name, description, is_remote, location, skills, user_id)
+	VALUES ($1, $2, $3, $4, $5, $6);`
 
-	if _, err := s.db.ExecContext(ctx, query, project.ID, project.Name, project.Description, project.IsRemote, project.Location, "{"+strings.Join(project.Skills, ", ")+"}", project.UserID); err != nil {
+	if _, err := s.db.ExecContext(ctx, query, project.Name, project.Description, project.IsRemote, project.Location, "{"+strings.Join(project.Skills, ", ")+"}", project.UserID); err != nil {
 		log.Printf("error posting project to Postgres: %s", err)
 		return err
 	}

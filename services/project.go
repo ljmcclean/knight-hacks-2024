@@ -10,7 +10,7 @@ type Project struct {
 	ID          int       `json:"id"`
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
-	IsRemote    bool      `json:"is_remote"`
+	IsRemote    int       `json:"is_remote"`
 	Location    string    `json:"location"`
 	Skills      []string  `json:"skills"`
 	UserID      uuid.UUID `json:"user_id"`

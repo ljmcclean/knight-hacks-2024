@@ -13,6 +13,7 @@ import (
 
 	"github.com/ljmcclean/knight-hacks-2024/config"
 	"github.com/ljmcclean/knight-hacks-2024/postgres"
+	"github.com/ljmcclean/knight-hacks-2024/seeds"
 	"github.com/ljmcclean/knight-hacks-2024/server"
 )
 
@@ -39,6 +40,8 @@ func run(ctx context.Context) error {
 	log.Printf("established database connection\n")
 
 	server := server.New(cfg, ctx, db)
+
+	seeds.SeedProjects(ctx, db)
 
 	go func() {
 		log.Printf("listening and serving on %s\n", server.Addr)

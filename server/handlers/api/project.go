@@ -101,15 +101,11 @@ func PostNewProject(ctx context.Context, ps services.ProjectService) http.Handle
 		name := r.Form.Get("name")
 		desc := r.Form.Get("description")
 		isRemoteStr := r.Form.Get("is_remote")
-		isRemote := false
-		isRemoteInt, err := strconv.Atoi(isRemoteStr)
+		isRemote, err := strconv.Atoi(isRemoteStr)
 		if err != nil {
 			log.Printf("invalid isRemote field")
 			http.Error(w, "Could not parse is_remote field", http.StatusBadRequest)
 			return
-		}
-		if isRemoteInt > 0 {
-			isRemote = true
 		}
 		loc := r.Form.Get("location")
 		skillStr := r.Form.Get("skills")
@@ -141,15 +137,11 @@ func PostProject(ctx context.Context, ps services.ProjectService) http.Handler {
 		name := r.Form.Get("name")
 		desc := r.Form.Get("description")
 		isRemoteStr := r.Form.Get("is_remote")
-		isRemote := false
-		isRemoteInt, err := strconv.Atoi(isRemoteStr)
+		isRemote, err := strconv.Atoi(isRemoteStr)
 		if err != nil {
 			log.Printf("invalid isRemote field")
 			http.Error(w, "Could not parse is_remote field", http.StatusBadRequest)
 			return
-		}
-		if isRemoteInt > 0 {
-			isRemote = true
 		}
 		loc := r.Form.Get("location")
 		skillStr := r.Form.Get("skills")

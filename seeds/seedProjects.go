@@ -13,7 +13,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 1",
 			Description: "Some description for Project 1",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Orlando, Florida",
 			Skills:      []string{"programming", "art"},
 			UserID:      uuid.New(),
@@ -21,7 +21,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 2",
 			Description: "Some description for Project 2",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "New York, New York",
 			Skills:      []string{"design", "writing"},
 			UserID:      uuid.New(),
@@ -29,7 +29,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 3",
 			Description: "Some description for Project 3",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Los Angeles, California",
 			Skills:      []string{"programming", "music"},
 			UserID:      uuid.New(),
@@ -37,7 +37,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 4",
 			Description: "Some description for Project 4",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Austin, Texas",
 			Skills:      []string{"photography", "video"},
 			UserID:      uuid.New(),
@@ -45,7 +45,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 5",
 			Description: "Some description for Project 5",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Seattle, Washington",
 			Skills:      []string{"programming", "data science"},
 			UserID:      uuid.New(),
@@ -53,7 +53,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 6",
 			Description: "Some description for Project 6",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Miami, Florida",
 			Skills:      []string{"marketing", "sales"},
 			UserID:      uuid.New(),
@@ -61,7 +61,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 7",
 			Description: "Some description for Project 7",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Chicago, Illinois",
 			Skills:      []string{"design", "photography"},
 			UserID:      uuid.New(),
@@ -69,7 +69,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 8",
 			Description: "Some description for Project 8",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Boston, Massachusetts",
 			Skills:      []string{"writing", "programming"},
 			UserID:      uuid.New(),
@@ -77,7 +77,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 9",
 			Description: "Some description for Project 9",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Denver, Colorado",
 			Skills:      []string{"art", "music"},
 			UserID:      uuid.New(),
@@ -85,7 +85,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 10",
 			Description: "Some description for Project 10",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Phoenix, Arizona",
 			Skills:      []string{"data analysis", "business"},
 			UserID:      uuid.New(),
@@ -93,7 +93,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 11",
 			Description: "Some description for Project 11",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "San Francisco, California",
 			Skills:      []string{"programming", "design"},
 			UserID:      uuid.New(),
@@ -101,7 +101,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 12",
 			Description: "Some description for Project 12",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Atlanta, Georgia",
 			Skills:      []string{"photography", "art"},
 			UserID:      uuid.New(),
@@ -109,7 +109,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 13",
 			Description: "Some description for Project 13",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Dallas, Texas",
 			Skills:      []string{"programming", "music"},
 			UserID:      uuid.New(),
@@ -117,7 +117,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 14",
 			Description: "Some description for Project 14",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Philadelphia, Pennsylvania",
 			Skills:      []string{"business", "marketing"},
 			UserID:      uuid.New(),
@@ -125,7 +125,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 15",
 			Description: "Some description for Project 15",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Portland, Oregon",
 			Skills:      []string{"video", "art"},
 			UserID:      uuid.New(),
@@ -133,7 +133,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 16",
 			Description: "Some description for Project 16",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "San Diego, California",
 			Skills:      []string{"programming", "data analysis"},
 			UserID:      uuid.New(),
@@ -141,7 +141,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 17",
 			Description: "Some description for Project 17",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Las Vegas, Nevada",
 			Skills:      []string{"marketing", "sales"},
 			UserID:      uuid.New(),
@@ -149,7 +149,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 18",
 			Description: "Some description for Project 18",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "New Orleans, Louisiana",
 			Skills:      []string{"design", "business"},
 			UserID:      uuid.New(),
@@ -157,7 +157,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 19",
 			Description: "Some description for Project 19",
-			IsRemote:    false,
+			IsRemote:    0,
 			Location:    "Nashville, Tennessee",
 			Skills:      []string{"music", "art"},
 			UserID:      uuid.New(),
@@ -165,7 +165,7 @@ func SeedProjects(ctx context.Context, ps services.ProjectService) {
 		{
 			Name:        "Project 20",
 			Description: "Some description for Project 20",
-			IsRemote:    true,
+			IsRemote:    1,
 			Location:    "Charlotte, North Carolina",
 			Skills:      []string{"programming", "photography"},
 			UserID:      uuid.New(),
