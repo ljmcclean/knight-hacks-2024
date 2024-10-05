@@ -1,10 +1,10 @@
 :root {
   
     /* Color Palette */
-    --clr-txt:#0fff;
-    --clr-bg: light(#f8f8f8);
-    --clr-p: #f9a648;
-    --clr-a: #f0f;
+    --clr-txt-main:#f88344;
+    --clr-txt-second:#d9355c;
+    --clr-bg-dark: #1B1212;
+    --clr-bg-light: #303030;
   
     /* Font Sizes */
     --fs-s: clamp(1rem, 3vw, 1.5rem);
@@ -13,16 +13,24 @@
 }
 
 @font-face{
-    font-family: 'sporting-strategy-regular';
-    src: url("/assets/fonts/SportingStrategy-BLdgG.ttf") format('ttf');
+    font-family: 'nextArt';
+    src: url(../fonts/NEXTART_Regular.otf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'nextArt';
+    src: url(../fonts/NEXTART_Bold.otf);
+    font-weight: bold;
 }
 
+
 body {
-    background: #FF8988;
+    background: var(--clr-bg-light);
 }
 
 .content {
-    /* display: flex; */
+    font-family:'nextArt';
+    font-weight: bold;
 }
 
 #sidebar {
@@ -31,14 +39,13 @@ body {
     z-index: 1;
     overflow-x: hidden;
     padding-top: 20px;
-    background: white;
-    color: var(--clr-txt);
-    font-family:'sporting-strategy-regular';
+    background: var(--clr-bg-dark);
+    color: var(--clr-txt-main);
     position: fixed;
 }
 
 .main-section {
-    color: #333;
+    color: var(--clr-bg-light);
     width: 80%;
     margin-left: auto;
 }
@@ -65,9 +72,10 @@ body {
     padding: 0.8rem 1.25rem;
     border: none;
     border-radius: 1rem;
-    background: #333;
+    background: var(--clr-bg-dark);
     font-size: 1.5rem;
     position: fixed;
+    z-index: 5;
 }
 
 #search-btn {
@@ -77,6 +85,9 @@ body {
     border: none;
     margin: 1rem;
     margin-left: 65.5rem;
+    position: fixed;
+    z-index: 5;
+    background: var(--clr-bg-dark)
 }
 
 #search-btn:hover {
@@ -85,26 +96,42 @@ body {
 
 #projs {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    padding-top: 7rem;
+    overflow: hidden;
 }
 
 .proj-tile {
-    background: #555;
-    width: 15rem;
-    height: 15rem;
+    background: var(--clr-bg-dark);
+    width: 17rem;
+    height: 17rem;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.proj-tile:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .proj-name {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: var(--clr-txt-main);
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .proj-loca {
     font-size: 1.25rem;
+    color: var(--clr-txt-second);
+    text-align: center;
+    margin-top: 0.25rem;
 }
 
 .proj-desc {
     font-size: 0.75rem;
+    color: var(--clr-txt-second);
+    margin: 1rem;
 }
