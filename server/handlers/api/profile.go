@@ -68,6 +68,8 @@ func PostProfile(ctx context.Context, ps services.ProfileService) http.Handler {
 			return
 		}
 
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message": "Profile updated successfully"}`))
 	})
 }
