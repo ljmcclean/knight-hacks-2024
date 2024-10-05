@@ -41,6 +41,46 @@ func GetProject(ctx context.Context, ps services.ProjectService) http.Handler {
 	})
 }
 
+func PostNewProject(ctx context.Context, ps services.ProjectService) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		session := r.Context().Value(auth.SessionKey).(*services.Session)
+		id := session.ProfileID
+
+		r.ParseForm()
+		name := r.Form.Get("name")
+		desc := r.Form.Get("description")
+		isRemoteStr := r.Form.Get("is_remote")
+		isRemote := false
+		isRemoteInt, err := strconv.Atoi(isRemoteStr)
+		if err != nil {
+			log.Printf("invalid isRemote field")
+			http.Error(w, "Could not parse is_remote field", http.StatusBadRequest)
+			return
+		}
+		if isRemoteInt > 0 {
+			isRemote = true
+		}
+		loc := r.Form.Get("location")
+		skillStr := r.Form.Get("skills")
+		skills := strings.Split(skillStr, ",")
+
+		project := &services.Project{
+			UserID:      id,
+			Name:        name,
+			Description: desc,
+			IsRemote:    isRemote,
+			Location:    loc,
+			Skills:      skills,
+		}
+
+		err = ps.PostProject(ctx, project)
+		if err != nil {
+			log.Printf("error posting project: %s", err)
+			return
+		}
+	})
+}
+
 func PostProject(ctx context.Context, ps services.ProjectService) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		session := r.Context().Value(auth.SessionKey).(*services.Session)
