@@ -51,31 +51,51 @@ body {
 }
 
 #profile-name {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    margin: 1rem 0 0 1rem;
 }
 
 #profile-skills {
-
-}
-
-#view-profile-btn {
-
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 2rem 0rem 0.5rem 1rem;
 }
 
 #profile-skill-list{
 
 }
 
+#view-profile-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    z-index: 5;
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    margin: 2rem 0 0 7.5%;
+    width: 85%;
+    transform: transition 0.15s ease;
+}
+
+#view-profile-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
 #discover-search {
-    width: 63rem;
-    margin: 1rem;
+    width: 63.5%;
     padding: 0.8rem 1.25rem;
     border: none;
     border-radius: 1rem;
-    background: var(--clr-bg-dark);
+    background: var(--clr-txt-main);
     font-size: 1.5rem;
-    position: fixed;
     z-index: 5;
+    margin: 1rem 1.5rem;
+    position: fixed;
+    transition: transform 0.15s ease;
+    box-sizing: border-box;
+    color: var(--clr-bg-dark);
 }
 
 #search-btn {
@@ -83,15 +103,20 @@ body {
     font-size: 1.5rem;
     border-radius: 1rem;
     border: none;
-    margin: 1rem;
-    margin-left: 65.5rem;
-    position: fixed;
     z-index: 5;
-    background: var(--clr-bg-dark)
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    margin-left: 10rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    position: fixed;
+    transition: transform 0.15s ease;
 }
 
 #search-btn:hover {
     cursor: pointer;
+    transform: scale(1.02);
 }
 
 #projs {
@@ -109,6 +134,7 @@ body {
     height: 17rem;
     border-radius: 0.5rem;
     transition: transform 0.2s ease;
+    box-sizing: border-box;
 }
 
 .proj-tile:hover {
