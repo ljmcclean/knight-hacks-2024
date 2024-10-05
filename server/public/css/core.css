@@ -5,8 +5,8 @@
   /* Color Palette */
   --clr-txt: light-dark(#080809, #f8f8f8);
   --clr-bg: light-dark(#f8f8f8, #080809);
-  --clr-p: #f9a648;
-  --clr-a: #f0f;
+  --clr-orange: #ec844c;
+  --clr-red: #dc4454;
 
   /* Font Sizes */
   --fs-s: clamp(1rem, 3vw, 1.5rem);
