@@ -2,17 +2,20 @@ package server
 
 import (
 	"context"
-	"net/http"
 	"knight-hacks-2024/config"
 	"knight-hacks-2024/server/auth"
 	"knight-hacks-2024/server/handlers"
 	"knight-hacks-2024/server/templates"
 	"knight-hacks-2024/services"
+	"net/http"
 
 	"github.com/a-h/templ"
 )
 
 func addRoutes(mux *http.ServeMux, ctx context.Context, cfg *config.Config, db services.Database) {
+	assetsFS := http.FileServer(http.Dir("server/public"))
+	mux.Handle("/assets/", http.StripPrefix("/assets/", assetsFS))
+
 	mux.Handle("/", templ.Handler(templates.Index()))
 
 	mux.Handle("GET /sign-up", handlers.GetSignUp())
