@@ -65,24 +65,6 @@ body {
 
 }
 
-#view-profile-btn {
-    padding: 0.8rem 2.5rem;
-    font-size: 1.5rem;
-    border-radius: 1rem;
-    border: none;
-    z-index: 5;
-    background: var(--clr-txt-second);
-    color: var(--clr-bg-dark);
-    margin: 2rem 0 0 7.5%;
-    width: 85%;
-    transform: transition 0.15s ease;
-}
-
-#view-profile-btn:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-}
-
 #discover-search {
     width: 63.5%;
     padding: 0.8rem 1.25rem;
