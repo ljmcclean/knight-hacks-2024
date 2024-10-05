@@ -23,7 +23,7 @@ var validProfileColumns = map[string]bool{
 
 func (s *postgreSQL) PostProfile(ctx context.Context, profile *services.Profile) error {
 	query := `
-	INSERT INTO profile (name, email, password, description, location, skills, project_ids)
+	INSERT INTO profile (name, email, password, description, location, skills)
 	VALUES ($1, $2, $3, $4, $5, $6);`
 
 	if _, err := s.db.ExecContext(ctx, query, profile.Name, profile.Email, profile.Password, profile.Description, profile.Location, "{"+strings.Join(profile.Skills, ", ")+"}"); err != nil {
