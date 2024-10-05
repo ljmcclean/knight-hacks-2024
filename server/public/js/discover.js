@@ -5,11 +5,10 @@ const skillInput = document.querySelector("#skill-inp");
 const addSkillBtn = document.querySelector("#add-skill-btn");
 const skillList = document.querySelector("#profile-skill-list");
 
-
 const searchInput = document.querySelector("#discover-search");
 const searchBtn = document.querySelector("#search-btn");
 
-let skills = ["skill one", "skill two", "three"];
+let skills = [];
 
 const addListItem = () => {
     if(skillInput.value !== ""){
@@ -28,25 +27,30 @@ const renderSkills = () => {
     console.log("this is in renderSkills")
 }
 
+const renderPosts = () => {
+    fetch('/api/project/1')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json(); // Parse the response as JSON
+    })
+    .then(data => {
+        console.log(data); // Handle the data
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
 addSkillBtn.addEventListener("click", function(){
     addListItem();
     renderSkills();
 });
 
-const renderPosts = () => {
-    fetch('/api/project/1')
-    .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json(); // Parse the response as JSON
-        })
-        .then(data => {
-            console.log(data); // Handle the data
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-}
-
-renderPosts();
+skillInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        addListItem();
+        renderSkills();
+    }
+});

@@ -1,8 +1,9 @@
 package templates
 
 import "github.com/ljmcclean/knight-hacks-2024/server/templates/components"
+import "github.com/ljmcclean/knight-hacks-2024/services"
 
-templ Discover() {
+templ Discover(profile *services.Profile) {
 @components.Document() {
 @components.Head("Discover") {
 <link rel="stylesheet" href="/assets/css/discoverStyles.css" />
@@ -12,11 +13,27 @@ templ Discover() {
 	<div class="content">
 		<div id="sidebar">
 			<div id="profile">
-				<h1 id="profile-name">Nate Lehman</h1>
-				<h2 id="profile-skills">Your Skills:</h2>
-				<ul id="profile-skill-list"></ul>
-				<input id="skill-inp" type="text" placeholder="Add skills...">
-				<button id="add-skill-btn">Add</button>
+				<h1 id="profile-name">{ profile.Name }</h1>
+				<h2 class="form-title">Enter Sorting Information</h2>
+				<form action="/api/profile" method="post">
+					<input name="name" type="text" placeholder="Name">
+					<input name="email" type="text" placeholder="Email">
+					<input name="location" type="text" placeholder="Location">
+					<input name="description" type="text" placeholder="Description">
+					<input name="skills" type="text" placeholder="Skills">
+					<button class="submit-btn">Submit</button>
+				</form>
+			</div>
+			<div id="project">
+				<h2 class="form-title">Enter New Project Information</h2>
+				<form action="/api/profile" method="post">
+					<input name="name" type="text" placeholder="Name">
+					<input name="description" type="text" placeholder="Description">
+					<input name="is_remote" type="text" placeholder="Is Remote">
+					<input name="location" type="text" placeholder="Location">
+					<input name="skills" type="text" placeholder="Skills Needed">
+					<button class="submit-btn">Submit</button>
+				</form>
 			</div>
 		</div>
 		<div class="main-section">

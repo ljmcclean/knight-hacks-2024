@@ -59,14 +59,38 @@ body {
     margin: 1rem 0 0 1rem;
 }
 
-#profile-skills {
-    font-size: 2.5rem;
+.form-title {
+    font-size: 2rem;
+    margin: 1.5rem 0rem 1.5rem 1rem;
     line-height: 1;
-    margin: 2rem 0rem 0.5rem 1rem;
 }
 
-#profile-skill-list{
+input {
+    background: var(--clr-txt-main);
+    width: 80%;
+    border: none;
+    margin: 0.25rem 0rem;
+    margin-left: 10%;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
 
+.submit-btn {
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 0.75rem;
+    transition: transform 0.15s ease;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 #skill-inp {
