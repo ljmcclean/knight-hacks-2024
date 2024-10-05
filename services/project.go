@@ -20,4 +20,6 @@ type ProjectService interface {
 	PostProject(context.Context, *Project) error
 	UpdateProject(ctx context.Context, profile *Project) error
 	GetProject(ctx context.Context, filter map[string]string) (*Project, error)
+	GetUserProjects(ctx context.Context, userID uuid.UUID) ([]*Project, error)
+	GetMatchingProjects(ctx context.Context, skills []string) ([]*Project, error)
 }

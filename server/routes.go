@@ -37,6 +37,8 @@ func addRoutes(mux *http.ServeMux, ctx context.Context, cfg *config.Config, db s
 	mux.Handle("POST /api/profile/", auth.Authenticate(api.PostProfile(ctx, db), ctx, db, 1))
 
 	mux.Handle("GET /api/project/{id}", auth.Authenticate(api.GetProject(ctx, db), ctx, db, 1))
+	mux.Handle("GET /api/all-user-projects", auth.Authenticate(api.GetUserProjects(ctx, db), ctx, db, 1))
+	mux.Handle("GET /api/all-matching-projects", auth.Authenticate(api.GetMatchingProjects(ctx, db), ctx, db, 1))
 	mux.Handle("POST /api/project/", auth.Authenticate(api.PostProject(ctx, db), ctx, db, 1))
 	mux.Handle("POST /api/new-project/", auth.Authenticate(api.PostNewProject(ctx, db), ctx, db, 1))
 }

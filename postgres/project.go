@@ -7,6 +7,7 @@ import (
 	"log"
 	"strings"
 
+	"github.com/google/uuid"
 	"github.com/ljmcclean/knight-hacks-2024/services"
 
 	"github.com/lib/pq"
@@ -88,4 +89,86 @@ func (s *postgreSQL) GetProject(ctx context.Context, filter map[string]string) (
 	}
 
 	return project, nil
+}
+
+func (s *postgreSQL) GetUserProjects(ctx context.Context, userID uuid.UUID) ([]*services.Project, error) {
+	query := `
+	SELECT id, name, description, is_remote, location, skills, user_id
+	FROM project 
+	WHERE user_id = $1;`
+
+	rows, err := s.db.QueryContext(ctx, query, userID)
+	if err != nil {
+		log.Printf("error querying user projects from Postgres: %s", err)
+		return nil, err
+	}
+	defer rows.Close()
+
+	var projects []*services.Project
+
+	for rows.Next() {
+		project := &services.Project{}
+		if err := rows.Scan(
+			&project.ID,
+			&project.Name,
+			&project.Description,
+			&project.IsRemote,
+			&project.Location,
+			pq.Array(&project.Skills),
+			&project.UserID,
+		); err != nil {
+			log.Printf("error scanning project: %s", err)
+			return nil, err
+		}
+		projects = append(projects, project)
+	}
+
+	if err := rows.Err(); err != nil {
+		log.Printf("error encountered during rows iteration: %s", err)
+		return nil, err
+	}
+
+	return projects, nil
+}
+
+func (s *postgreSQL) GetMatchingProjects(ctx context.Context, userSkills []string) ([]*services.Project, error) {
+	query := `
+	SELECT id, name, description, is_remote, location, skills, user_id
+	FROM project 
+	WHERE skills && $1;`
+
+	skillsArray := pq.Array(userSkills)
+
+	rows, err := s.db.QueryContext(ctx, query, skillsArray)
+	if err != nil {
+		log.Printf("error querying matching projects from Postgres: %s", err)
+		return nil, err
+	}
+	defer rows.Close()
+
+	var projects []*services.Project
+
+	for rows.Next() {
+		project := &services.Project{}
+		if err := rows.Scan(
+			&project.ID,
+			&project.Name,
+			&project.Description,
+			&project.IsRemote,
+			&project.Location,
+			pq.Array(&project.Skills),
+			&project.UserID,
+		); err != nil {
+			log.Printf("error scanning project: %s", err)
+			return nil, err
+		}
+		projects = append(projects, project)
+	}
+
+	if err := rows.Err(); err != nil {
+		log.Printf("error encountered during rows iteration: %s", err)
+		return nil, err
+	}
+
+	return projects, nil
 }

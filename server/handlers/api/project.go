@@ -22,14 +22,65 @@ func GetProject(ctx context.Context, ps services.ProjectService) http.Handler {
 			return
 		}
 
-		profile, err := ps.GetProject(ctx, map[string]string{
+		project, err := ps.GetProject(ctx, map[string]string{
 			"id": id,
 		})
 		if err != nil {
 			http.Error(w, "Project could not be found", http.StatusNotFound)
 		}
 
-		json, err := json.Marshal(profile)
+		json, err := json.Marshal(project)
+		if err != nil {
+			log.Printf("error marshalling project")
+			http.Error(w, "Couldn't marshal project", http.StatusInternalServerError)
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write(json)
+	})
+}
+
+func GetUserProjects(ctx context.Context, ps services.ProjectService) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		session := r.Context().Value(auth.SessionKey).(*services.Session)
+		id := session.ProfileID
+
+		projects, err := ps.GetUserProjects(ctx, id)
+		if err != nil {
+			http.Error(w, "Projects could not be found", http.StatusNotFound)
+		}
+
+		json, err := json.Marshal(projects)
+		if err != nil {
+			log.Printf("error marshalling profile")
+			http.Error(w, "Couldn't marshal project", http.StatusInternalServerError)
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write(json)
+	})
+}
+
+func GetMatchingProjects(ctx context.Context, db services.Database) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		session := r.Context().Value(auth.SessionKey).(*services.Session)
+		id := session.ProfileID
+
+		profile, err := db.GetProfile(ctx, map[string]string{
+			"id": id.String(),
+		})
+		if err != nil {
+			http.Error(w, "Profile could not be found", http.StatusNotFound)
+		}
+
+		projects, err := db.GetMatchingProjects(ctx, profile.Skills)
+		if err != nil {
+			http.Error(w, "Projects could not be found", http.StatusNotFound)
+		}
+
+		json, err := json.Marshal(projects)
 		if err != nil {
 			log.Printf("error marshalling profile")
 			http.Error(w, "Couldn't marshal project", http.StatusInternalServerError)
