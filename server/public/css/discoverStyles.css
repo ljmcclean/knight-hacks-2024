@@ -67,6 +67,7 @@ body {
     border-radius: 1rem;
     background: #333;
     font-size: 1.5rem;
+    position: fixed;
 }
 
 #search-btn {
@@ -74,6 +75,8 @@ body {
     font-size: 1.5rem;
     border-radius: 1rem;
     border: none;
+    margin: 1rem;
+    margin-left: 65.5rem;
 }
 
 #search-btn:hover {
