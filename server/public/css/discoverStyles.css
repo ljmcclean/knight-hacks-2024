@@ -10,22 +10,37 @@
     --fs-s: clamp(1rem, 3vw, 1.5rem);
     --fs-l: clamp(2.5rem, 10vw, 5rem);
     --fs-xl: clamp(2rem, 18vw, 10rem);
-  }
+}
+
+@font-face{
+    font-family: 'sporting-strategy-regular';
+    src: url('/assets/fonts/SportingStrategy-BLdgG.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     background: #FF89FF;
 }
 
-.content{
+.content {
     display: flex;
-    justify-content: space-between;
+
 }
 
 #sidebar {
+    height: 100vh;
     width: 20%;
-    height: 100%;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
     background: white;
     color: var(--clr-txt);
+    font-family:'sporting-strategy-regular';
+}
+
+.main-section {
+    color: #333;
 }
 
 #profile-name {
