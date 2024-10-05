@@ -1,0 +1,44 @@
+package templates
+
+import (
+	"knight-hacks-2024/server/templates/components"
+)
+
+templ Discover() {
+    @components.Document() {
+		@components.Head("Discover"){
+            <link rel="stylesheet" href="/assets/discoverStyles.css"/>
+        }
+		<body>
+            <div id="header">
+                <div id="profile">
+                    <h1 id="profile-name">Nate Lehman</h1>
+                    <h2 id="profile-skills">Your Skills:</h2>
+                    <ul id="profile-skill-list">
+                        <li>Skill 1</li>
+                        <li>Skill 2</li>
+                        <li>Skill 3</li>
+                    </ul>
+                </div>
+                <input type="text">
+            </div>
+            <div id="projs">
+                <div class="proj-tile" id="proj-tile-one">
+                    <h1 class="proj-name">Test Project 1</h1>
+                    <h2 class="proj-loca">Orlando, Florida</h2>
+                    <p class="proj-desc">sample text</p>
+                </div>
+                <div class="proj-tile" id="proj-tile-two">
+                    <h1 class="proj-name">Test Project 2</h1>
+                    <h2 class="proj-loca">Phoenix, Arizona</h2>
+                    <p class="proj-desc">sample text</p>
+                </div>
+                <div class="proj-tile" id="proj-tile-three">
+                    <h1 class="proj-name">Test Project 3</h1>
+                    <h2 class="proj-loca">Las Vegas, Nevada</h2>
+                    <p class="proj-desc">sample text</p>
+                </div>
+            </div>
+		</body>
+	}
+}

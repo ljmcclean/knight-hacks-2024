@@ -26,7 +26,7 @@ func addRoutes(mux *http.ServeMux, ctx context.Context, cfg *config.Config, db s
 
 	mux.Handle("GET /dashboard", auth.Authenticate(handlers.GetDashboard(ctx, db), ctx, db, 1))
 
-	mux.Handle("GET /discover", auth.Authenticate(handlers.GetDiscover(ctx, db), ctx, db, 1))
+	mux.Handle("GET /discover", auth.Authenticate(handlers.GetDiscover(ctx), ctx, db, 1))
 
 	mux.Handle("POST /logout", auth.Authenticate(handlers.PostLogout(ctx, db), ctx, db, 0))
 }
