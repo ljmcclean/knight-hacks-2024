@@ -1,131 +1,132 @@
 package templates
 
-import "github.com/ljmcclean/knight-hacks-2024/server/templates/components"
-import "github.com/ljmcclean/knight-hacks-2024/services"
+import (
+	"github.com/ljmcclean/knight-hacks-2024/server/templates/components"
+	"github.com/ljmcclean/knight-hacks-2024/services"
+)
 
 templ Discover(profile *services.Profile) {
-@components.Document() {
-@components.Head("Discover") {
-<link rel="stylesheet" href="/assets/css/discoverStyles.css" />
-}
-
-<body>
-	<div class="content">
-		<div id="sidebar">
-			<div id="profile">
-				<h1 id="profile-name">{ profile.Name }</h1>
-				<h2 class="form-title">Enter Sorting Information</h2>
-				<form action="/api/profile" method="post">
-					<input name="name" type="text" placeholder="Name">
-					<input name="email" type="text" placeholder="Email">
-					<input name="location" type="text" placeholder="Location">
-					<input name="description" type="text" placeholder="Description">
-					<input name="skills" type="text" placeholder="Skills">
-					<button class="submit-btn">Submit</button>
-				</form>
+	@components.Document() {
+		@components.Head("Discover") {
+			<link rel="stylesheet" href="/assets/css/discoverStyles.css"/>
+		}
+		<body>
+			<div class="content">
+				<div id="sidebar">
+					<div id="profile">
+						<h1 id="profile-name">{ profile.Name }</h1>
+						<h2 class="form-title">Enter Sorting Information</h2>
+						<form action="/api/profile" method="post">
+							<input name="name" type="text" placeholder="Name"/>
+							<input name="email" type="text" placeholder="Email"/>
+							<input name="location" type="text" placeholder="Location"/>
+							<input name="description" type="text" placeholder="Description"/>
+							<input name="skills" type="text" placeholder="Skills"/>
+							<button class="submit-btn">Submit</button>
+						</form>
+					</div>
+					<div id="project">
+						<h2 class="form-title">Enter New Project Information</h2>
+						<form action="/api/profile" method="post">
+							<input name="name" type="text" placeholder="Name"/>
+							<input name="description" type="text" placeholder="Description"/>
+							<input name="is_remote" type="text" placeholder="Is Remote"/>
+							<input name="location" type="text" placeholder="Location"/>
+							<input name="skills" type="text" placeholder="Skills Needed"/>
+							<button class="submit-btn">Submit</button>
+						</form>
+					</div>
+				</div>
+				<div class="main-section">
+					<div class="search-section">
+						<input type="text" id="discover-search" placeholder="Search for projects..."/>
+						<button id="search-btn">Search</button>
+					</div>
+					<div id="projs">
+						<div class="proj-tile" id="proj-tile-one">
+							<h1 class="proj-name">Test Project 1</h1>
+							<h2 class="proj-loca">Orlando, Florida</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-two">
+							<h1 class="proj-name">Test Project 2</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-three">
+							<h1 class="proj-name">Test Project 3</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-four">
+							<h1 class="proj-name">Test Project 4</h1>
+							<h2 class="proj-loca">Orlando, Florida</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-five">
+							<h1 class="proj-name">Test Project 5</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-six">
+							<h1 class="proj-name">Test Project 6</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-seven">
+							<h1 class="proj-name">Test Project 7</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-eight">
+							<h1 class="proj-name">Test Project 8</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-nine">
+							<h1 class="proj-name">Test Project 9</h1>
+							<h2 class="proj-loca">Orlando, Florida</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-ten">
+							<h1 class="proj-name">Test Project 10</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-eleven">
+							<h1 class="proj-name">Test Project 11</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-twelve">
+							<h1 class="proj-name">Test Project 12</h1>
+							<h2 class="proj-loca">Orlando, Florida</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-thirteen">
+							<h1 class="proj-name">Test Project 13</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-fourteen">
+							<h1 class="proj-name">Test Project 14</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-fifteen">
+							<h1 class="proj-name">Test Project 15</h1>
+							<h2 class="proj-loca">Phoenix, Arizona</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+						<div class="proj-tile" id="proj-tile-sixteen">
+							<h1 class="proj-name">Test Project 16</h1>
+							<h2 class="proj-loca">Las Vegas, Nevada</h2>
+							<p class="proj-desc">sample text</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div id="project">
-				<h2 class="form-title">Enter New Project Information</h2>
-				<form action="/api/profile" method="post">
-					<input name="name" type="text" placeholder="Name">
-					<input name="description" type="text" placeholder="Description">
-					<input name="is_remote" type="text" placeholder="Is Remote">
-					<input name="location" type="text" placeholder="Location">
-					<input name="skills" type="text" placeholder="Skills Needed">
-					<button class="submit-btn">Submit</button>
-				</form>
-			</div>
-		</div>
-		<div class="main-section">
-			<div class="search-section">
-				<input type="text" id="discover-search" placeholder="Search for projects..." />
-				<button id="search-btn">Search</button>
-			</div>
-			<div id="projs">
-				<div class="proj-tile" id="proj-tile-one">
-					<h1 class="proj-name">Test Project 1</h1>
-					<h2 class="proj-loca">Orlando, Florida</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-two">
-					<h1 class="proj-name">Test Project 2</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-three">
-					<h1 class="proj-name">Test Project 3</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-four">
-					<h1 class="proj-name">Test Project 4</h1>
-					<h2 class="proj-loca">Orlando, Florida</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-five">
-					<h1 class="proj-name">Test Project 5</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-six">
-					<h1 class="proj-name">Test Project 6</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-seven">
-					<h1 class="proj-name">Test Project 7</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-eight">
-					<h1 class="proj-name">Test Project 8</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-nine">
-					<h1 class="proj-name">Test Project 9</h1>
-					<h2 class="proj-loca">Orlando, Florida</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-ten">
-					<h1 class="proj-name">Test Project 10</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-eleven">
-					<h1 class="proj-name">Test Project 11</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-twelve">
-					<h1 class="proj-name">Test Project 12</h1>
-					<h2 class="proj-loca">Orlando, Florida</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-thirteen">
-					<h1 class="proj-name">Test Project 13</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-fourteen">
-					<h1 class="proj-name">Test Project 14</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-fifteen">
-					<h1 class="proj-name">Test Project 15</h1>
-					<h2 class="proj-loca">Phoenix, Arizona</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-				<div class="proj-tile" id="proj-tile-sixteen">
-					<h1 class="proj-name">Test Project 16</h1>
-					<h2 class="proj-loca">Las Vegas, Nevada</h2>
-					<p class="proj-desc">sample text</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="/assets/js/discover.js"></script>
-</body>
-}
+			<script src="/assets/js/discover.js"></script>
+		</body>
+	}
 }

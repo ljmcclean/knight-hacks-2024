@@ -69,6 +69,6 @@ func PostProfile(ctx context.Context, ps services.ProfileService) http.Handler {
 			return
 		}
 
-		handlers.GetDiscover(ctx, ps).ServeHTTP(w, r)
+		http.Redirect(w, r, "/discover", http.StatusCreated)
 	})
 }
