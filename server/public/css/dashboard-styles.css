@@ -1,58 +1,123 @@
 :root {
-
+  
     /* Color Palette */
-    --clr-txt:rgb(0, 0, 0);
-    --clr-bg: light(#f8f8f8);
-    --clr-p: #f9a648;
-    --clr-a: #f0f;
-    
+    --clr-txt-main:#f88344;
+    --clr-txt-second:#d9355c;
+    --clr-bg-dark: #1B1212;
+    --clr-bg-light: #303030;
+  
     /* Font Sizes */
     --fs-s: clamp(1rem, 3vw, 1.5rem);
     --fs-l: clamp(2.5rem, 10vw, 5rem);
     --fs-xl: clamp(2rem, 18vw, 10rem);
-    }
-    
-    @font-face{
-    font-family: 'sporting-strategy-regular';
-    src: url("/assets/fonts/SportingStrategy-BLdgG.ttf") format('ttf');
+}
+
+@font-face{
+    font-family: 'nextArt';
+    src: url(../fonts/NEXTART_Regular.otf);
     font-weight: normal;
-    font-style: normal;
-    }
-    body {
-    background: #FF8988;
+}
+@font-face{
+    font-family: 'nextArt';
+    src: url(../fonts/NEXTART_Bold.otf);
+    font-weight: bold;
+}
+.content {
+    font-family:'nextArt';
+    font-weight: bold;
+}
+#profile-name {
+    font-size: 3.5rem;
+    margin: 1rem 0 0 1rem;
+}
+#profile-skills {
+    font-size: 2rem;
+    margin: 1.5rem 0rem 1.5rem 1rem;
+    line-height: 1;
+}
+#button-style:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+body {
+    background: var(--clr-bg-light);
     flex-wrap: wrap;
-    }
-    /* Sidebar styles */
-    #sidebar {
+}
+.text-box{
+    width: 100%;
+    height: 15rem;
+    box-sizing: border-box;
+    color: var(--clr-bg-dark);
+    outline: none;
+    background: var(--clr-txt-main);
+    top: 1rem;
+    right: 1.5rem;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+}
+.button-container{
+    display: flex;
+    justify-content: space-around;
+}
+#button-style{
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 0.75rem;
+    transition: transform 0.15s ease;
+}
+#button-style2{
+    padding: 0.8rem 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    margin-left: 10rem;
+    top: 1rem;
+    right: 1.5rem;
+    transition: transform 0.15s ease;
+}
+#button-style2:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+/* Sidebar styles */
+#sidebar {
     height: 100vh;
     width: 20%;
     z-index: 1;
     overflow-x: hidden;
     padding-top: 20px;
-    background: white;
-    color: var(--clr-txt);
-    font-family:'sporting-strategy-regular';
-    }
-    #person-info {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1rem;
-    text-align: center;
+    background: var(--clr-bg-dark);
+    color: var(--clr-txt-main);
+    position: fixed;
+}
+#main{
+    color: var(--clr-bg-light);
+    width: 80%;
+    margin-left: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+#person-info {
+    text-align: left;
     color: white;
-    flex-wrap: wrap;
-    }
-    #desc-box {
-    padding: 1rem;
-    text-align: center;
+}
+#desc-box {
     color: white;
-    }
-    #skills-box {
-    padding: 1rem;
-    text-align: center;
+    padding-bottom: 50px;
+}
+#skills-box {
     color: white;
-    }
-    #location-id {
-    padding: 1rem;
-    text-align: center;
+}
+#location-id {
     color: white;
-    }
+}

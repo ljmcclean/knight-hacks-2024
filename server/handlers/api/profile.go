@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/ljmcclean/knight-hacks-2024/server/auth"
-	"github.com/ljmcclean/knight-hacks-2024/server/handlers"
+	//"github.com/ljmcclean/knight-hacks-2024/server/handlers"
 	"github.com/ljmcclean/knight-hacks-2024/services"
 )
 

@@ -1,58 +1,97 @@
 package templates
 
 import (
-"github.com/ljmcclean/knight-hacks-2024/server/templates/components"
-"github.com/ljmcclean/knight-hacks-2024/services"
+	"github.com/ljmcclean/knight-hacks-2024/server/templates/components"
+	//"github.com/ljmcclean/knight-hacks-2024/services"
 )
 
-templ Dashboard(profile *services.Profile) {
-@components.Document() {
-@components.Head("Dashboard")
-<div id="sidebar">
-<div id="profile">
-<h1 id="profile-name">Matthew Neet</h1>
-<h2 id="profile-skills">Your Projects:</h2>
-<button id="view-profile-btn">View Projects</button>
-<ul id="profile-project-list">
-<li>Project 1</li>
-<li>Project 2</li>
-<li>Project 3</li>
-</ul>
-</div>
-</div>
-<form action="/edit-profile" method="post">
-<button>Edit</button>
-</form>
-<form action="/logout" method="post">
-<button>Sign Out</button>
-</form>
+templ Dashboard() {
+	@components.Document() {
+		@components.Head("Dashboard"){
+            <link rel="stylesheet" href="/assets/css/dashboard-styles.css" />}
+		}
+	//<body>
+    // <div id="sidebar">
+    //     <div id="profile">
+    //         <h1 id="profile-name">Matthew Neet</h1>
+    //         <h2 id="profile-skills">Your Projects:</h2>
+    //         <button id="view-profile-btn">View Projects</button>
+    //         <ul id="profile-project-list">
+    //             <li>Project 1</li>
+    //             <li>Project 2</li>
+    //             <li>Project 3</li>
+    //         </ul>
+    //     </div>
+    // </div>
+
+<div class="content">
+    <div id="sidebar">
+        <div id="profile">
+            <h1 id="profile-name">Matthew Neet</h1>
+            <h2 id="profile-skills">Your Projects:</h2>
+            
+            <ul id="profile-project-list">
+                <li>Project 1</li>
+                <li>Project 2</li>
+                <li>Project 3</li>
+            </ul>
+            <button id="button-style">View Projects</button>
+        </div>
+    </div>
 <body>
-<div id="person-info">
-<p>
-Name: { profile.Name }
-<br/>
-Email: { profile.Email }
-<br/>
-</p>
-</div>
-<div id="desc-box">
-<p>
-About Me: { profile.Name }
-<br/>
-</p>
-</div>
-<div id="skills-box">
-<p>
-My Skills: { profile.Name }
-<br/>
-</p>
-</div>
-<div id="location-id">
-<p>
-My Skills: { profile.Name }
-<br/>
-</p>
-</div>
+    <div id="main">
+        <div class="button-container">
+            <form action="/edit-profile" method="post">
+                <button id="button-style2">Edit</button>
+                
+            </form>
+
+            <form action="/logout" method="post">
+                <button id="button-style2">Sign Out</button>
+            </form>
+        </div>
+        <form>
+        <div id="person-info">
+            <p>
+                Name: Matthew Neet
+                <br/>
+                Email: me@me.com
+            </p>
+        </div>
+
+        <div id="desc-box">
+            <p>
+                <label for="desc"> About Me:</label>
+                <br/>
+                <input type="text" class="text-box" name="Description" placeholder="Tell us about yourself!">
+            </p>
+            
+        </div>
+
+        <div id="skills-box">
+            <p>
+                My Skills:
+                <br/>
+                <ul id="profile-skill-list">
+                <li>Skill 1</li>
+                <li>Skill 2</li>
+                <li>Skill 3</li>
+            </ul>
+            </p>
+        </div>
+
+        <div id="location-id">
+            <p>
+                Location: Orlando, FL
+                <br/>
+                Willing to work Remote: <input type="checkbox"  name="remote">
+                <br/>
+                ID: 12345678
+                <br/>
+            </p>
+        </div>
+        </form>
+    </div>
 </body>
-}
+</div>
 }
