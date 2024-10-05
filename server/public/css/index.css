@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--clr-bg);
+    background-color: var(--clr-bg-dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,7 +16,6 @@ body {
 }
 
 .subtext {
-    color: var(--clr-txt);
     font-size: 2rem;
     margin-bottom: 50px; /* Space between subtext and buttons */
     text-align: center;
@@ -39,11 +38,11 @@ body {
 }
 
 .login-button {
-    background-color: var(--clr-red);
+    background-color: var(--clr-txt-main);
 }
 
 .signup-button {
-    background-color: var(--clr-red);
+    background-color: var(--clr-txt-main);
 }
 
 .button:hover {
