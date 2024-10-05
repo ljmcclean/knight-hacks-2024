@@ -2,8 +2,8 @@ package auth
 
 import (
 	"context"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"log"
-	"knight-hacks-2024/services"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -16,9 +16,11 @@ func RegisterProfile(ctx context.Context, ps services.ProfileService, name, emai
 		return err
 	}
 	profile := &services.Profile{
-		Name:     name,
-		Email:    email,
-		Password: string(hashedPassword),
+		Name:        name,
+		Email:       email,
+		Password:    string(hashedPassword),
+		Description: "",
+		Location:    "",
 	}
 
 	ps.PostProfile(ctx, profile)

@@ -1,8 +1,8 @@
 package handlers
 
 import (
+	"github.com/ljmcclean/knight-hacks-2024/server/templates"
 	"net/http"
-	"knight-hacks-2024/server/templates"
 
 	"github.com/a-h/templ"
 )

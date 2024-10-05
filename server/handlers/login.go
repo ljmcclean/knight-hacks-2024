@@ -2,16 +2,16 @@ package handlers
 
 import (
 	"context"
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/services"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
 	"golang.org/x/crypto/bcrypt"
 
-	"knight-hacks-2024/server/auth"
-	"knight-hacks-2024/server/templates"
+	"github.com/ljmcclean/knight-hacks-2024/server/auth"
+	"github.com/ljmcclean/knight-hacks-2024/server/templates"
 )
 
 func GetLogin() http.Handler {

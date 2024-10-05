@@ -2,9 +2,9 @@ package server
 
 import (
 	"context"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"net/http"
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/services"
 )
 
 func New(cfg *config.Config, ctx context.Context, db services.Database) *http.Server {

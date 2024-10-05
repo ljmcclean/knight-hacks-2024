@@ -3,8 +3,8 @@ package postgres
 import (
 	"database/sql"
 	"fmt"
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/services"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 )
 
 type postgreSQL struct {

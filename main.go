@@ -11,9 +11,9 @@ import (
 
 	_ "github.com/lib/pq"
 
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/postgres"
-	"knight-hacks-2024/server"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/postgres"
+	"github.com/ljmcclean/knight-hacks-2024/server"
 )
 
 func main() {

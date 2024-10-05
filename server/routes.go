@@ -2,14 +2,16 @@ package server
 
 import (
 	"context"
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/server/auth"
-	"knight-hacks-2024/server/handlers"
-	"knight-hacks-2024/server/templates"
-	"knight-hacks-2024/services"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/server/auth"
+	"github.com/ljmcclean/knight-hacks-2024/server/handlers"
+	"github.com/ljmcclean/knight-hacks-2024/server/templates"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"net/http"
 
 	"github.com/a-h/templ"
+
+	"github.com/ljmcclean/knight-hacks-2024/server/handlers/api"
 )
 
 func addRoutes(mux *http.ServeMux, ctx context.Context, cfg *config.Config, db services.Database) {
@@ -29,4 +31,8 @@ func addRoutes(mux *http.ServeMux, ctx context.Context, cfg *config.Config, db s
 	mux.Handle("GET /discover", auth.Authenticate(handlers.GetDiscover(ctx), ctx, db, 1))
 
 	mux.Handle("POST /logout", auth.Authenticate(handlers.PostLogout(ctx, db), ctx, db, 0))
+
+	// API Endpoints
+	mux.Handle("GET /api/profile/{id}", auth.Authenticate(api.GetProfile(ctx, db), ctx, db, 1))
+	mux.Handle("GET /api/project/{id}", auth.Authenticate(api.GetProject(ctx, db), ctx, db, 1))
 }

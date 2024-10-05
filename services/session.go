@@ -2,7 +2,7 @@ package services
 
 import (
 	"context"
-	"knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/config"
 	"time"
 
 	"github.com/google/uuid"

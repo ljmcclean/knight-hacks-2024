@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"context"
-	"knight-hacks-2024/server/templates"
+	"github.com/ljmcclean/knight-hacks-2024/server/templates"
 	"net/http"
 
 	"github.com/a-h/templ"

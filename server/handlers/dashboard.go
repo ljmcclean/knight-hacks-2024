@@ -2,13 +2,13 @@ package handlers
 
 import (
 	"context"
-	"knight-hacks-2024/server/templates"
-	"knight-hacks-2024/services"
+	"github.com/ljmcclean/knight-hacks-2024/server/templates"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"net/http"
 
 	"github.com/a-h/templ"
 
-	"knight-hacks-2024/server/auth"
+	"github.com/ljmcclean/knight-hacks-2024/server/auth"
 )
 
 // Protected route with session passed through via context

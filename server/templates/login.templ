@@ -1,20 +1,19 @@
 package templates
 
-import "knight-hacks-2024/server/templates/components"
+import "github.com/ljmcclean/knight-hacks-2024/server/templates/components"
 
 templ Login() {
-@components.Document() {
-@components.Head("Login") {
-}
-
-<body>
-	<form action="/login" method="post">
-		<label for="email">Email: </label>
-		<input name="email" type="text" maxlength="100" minlength="1" />
-		<label for="password">Password: </label>
-		<input name="password" type="password" maxlength="50" minlength="8" />
-		<button>Log In</button>
-	</form>
-</body>
-}
+	@components.Document() {
+		@components.Head("Login") {
+		}
+		<body>
+			<form action="/login" method="post">
+				<label for="email">Email: </label>
+				<input name="email" type="text" maxlength="100" minlength="1"/>
+				<label for="password">Password: </label>
+				<input name="password" type="password" maxlength="50" minlength="8"/>
+				<button>Log In</button>
+			</form>
+		</body>
+	}
 }

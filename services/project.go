@@ -5,12 +5,12 @@ import (
 )
 
 type Project struct {
-	ID          int
-	Name        string
-	Description string
-	IsRemote    bool
-	Location    string
-	Roles       []*Role
+	ID          int      `json:"id"`
+	Name        string   `json:"name"`
+	Description string   `json:"description"`
+	IsRemote    bool     `json:"is_remote"`
+	Location    string   `json:"location"`
+	Skills      []string `json:"skills"`
 }
 
 type ProjectService interface {

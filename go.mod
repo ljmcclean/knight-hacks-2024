@@ -1,4 +1,4 @@
-module knight-hacks-2024
+module github.com/ljmcclean/knight-hacks-2024
 
 go 1.23.1
 

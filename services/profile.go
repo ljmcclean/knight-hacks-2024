@@ -7,14 +7,14 @@ import (
 )
 
 type Profile struct {
-	ID          uuid.UUID
-	Name        string
-	Description string
-	Email       string
-	Password    string
-	Location    string
-	Skills      []*Skill
-	Projects    []*Project
+	ID          uuid.UUID `json:"id"`
+	Name        string    `json:"name"`
+	Email       string    `json:"email"`
+	Description string    `json:"description"`
+	Password    string    `json:"password"`
+	Location    string    `json:"location"`
+	Skills      []string  `json:"skills"`
+	Projects    []string  `json:"projects"`
 }
 
 type ProfileService interface {

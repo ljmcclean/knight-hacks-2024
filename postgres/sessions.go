@@ -4,9 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/ljmcclean/knight-hacks-2024/config"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"log"
-	"knight-hacks-2024/config"
-	"knight-hacks-2024/services"
 	"time"
 )
 

@@ -3,8 +3,9 @@ package handlers
 import (
 	"context"
 	"net/http"
-	"knight-hacks-2024/server/auth"
-	"knight-hacks-2024/services"
+
+	"github.com/ljmcclean/knight-hacks-2024/server/auth"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 )
 
 func PostLogout(ctx context.Context, ss services.SessionService) http.Handler {

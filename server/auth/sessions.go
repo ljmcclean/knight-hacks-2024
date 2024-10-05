@@ -5,8 +5,8 @@ import (
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
+	"github.com/ljmcclean/knight-hacks-2024/services"
 	"net/http"
-	"knight-hacks-2024/services"
 	"time"
 
 	"github.com/google/uuid"
