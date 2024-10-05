@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"context"
-	"net/http"
 	"knight-hacks-2024/server/templates"
 	"knight-hacks-2024/services"
+	"net/http"
 
 	"github.com/a-h/templ"
 
@@ -17,7 +17,6 @@ func GetDashboard(ctx context.Context, ps services.ProfileService) http.Handler 
 		session := r.Context().Value(auth.SessionKey).(*services.Session)
 
 		profile, err := ps.GetProfile(ctx,
-			[]string{"name", "email"},
 			map[string]string{
 				"id": session.ProfileID.String(),
 			},

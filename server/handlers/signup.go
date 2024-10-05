@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"context"
-	"net/http"
-	"regexp"
 	"knight-hacks-2024/server/auth"
 	"knight-hacks-2024/server/templates"
 	"knight-hacks-2024/services"
+	"net/http"
+	"regexp"
 
 	"github.com/a-h/templ"
 )

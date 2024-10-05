@@ -1,12 +1,19 @@
 package services
 
-import "github.com/google/uuid"
+import (
+	"context"
+)
 
 type Project struct {
-	ID          uuid.UUID
+	ID          int
 	Name        string
 	Description string
 	IsRemote    bool
 	Location    string
 	Roles       []*Role
+}
+
+type ProjectService interface {
+	PostProject(context.Context, *Project) error
+	GetProject(ctx context.Context, filter map[string]string) (*Project, error)
 }
