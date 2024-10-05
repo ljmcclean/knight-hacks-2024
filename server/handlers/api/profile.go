@@ -67,5 +67,7 @@ func PostProfile(ctx context.Context, ps services.ProfileService) http.Handler {
 			log.Printf("error posting profile: %s", err)
 			return
 		}
+
+		w.WriteHeader(http.StatusOK)
 	})
 }
