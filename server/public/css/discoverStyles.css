@@ -12,6 +12,10 @@
     --fs-xl: clamp(2rem, 18vw, 10rem);
 }
 
+::placeholder {
+    color: #555;
+}
+
 @font-face{
     font-family: 'nextArt';
     src: url(../fonts/NEXTART_Regular.otf);
@@ -65,6 +69,28 @@ body {
 
 }
 
+#skill-inp {
+    width: 60%;
+    background: var(--clr-txt-main);
+    color: var(--clr-bg-dark);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    outline: none;
+}
+
+#add-skill-btn {
+    width: 25%;
+    margin-left: 3%;
+    background: var(--clr-txt-second);
+    color: var(--clr-bg-dark);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+}
+
 #discover-search {
     width: 63.5%;
     padding: 0.8rem 1.25rem;
@@ -78,6 +104,7 @@ body {
     transition: transform 0.15s ease;
     box-sizing: border-box;
     color: var(--clr-bg-dark);
+    outline: none;
 }
 
 #search-btn {
