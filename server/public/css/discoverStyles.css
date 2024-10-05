@@ -1,7 +1,7 @@
 :root {
   
     /* Color Palette */
-    --clr-txt: light(#080809);
+    --clr-txt:#0fff;
     --clr-bg: light(#f8f8f8);
     --clr-p: #f9a648;
     --clr-a: #f0f;
@@ -14,4 +14,32 @@
 
 body {
     background: #FF89FF;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar {
+    width: 20%;
+    height: 100%;
+    background: white;
+    color: var(--clr-txt);
+}
+
+#profile-name {
+    font-size: 4rem;
+}
+
+#profile-skills {
+
+}
+
+#view-profile-btn {
+
+}
+
+#profile-skill-list{
+
 }
