@@ -21,11 +21,11 @@ func (s *postgreSQL) PostSkill(ctx context.Context, skill *services.Skill) error
 	INSERT INTO skill (id, name, proficiency, years_experience)
 	VALUES ($1, $2, $3, $4);`
 
-	_, err := s.db.ExecContext(ctx, query, skill.ID, skill.Name, skill.Proficiency, skill.YearsExperience)
-	if err != nil {
+	if _, err := s.db.ExecContext(ctx, query, skill.ID, skill.Name, skill.Proficiency, skill.YearsExperience); err != nil {
 		log.Printf("error posting skill to Postgres: %s", err)
 		return err
 	}
+
 	return nil
 }
 
@@ -51,13 +51,12 @@ func (s *postgreSQL) GetSkill(ctx context.Context, filter map[string]string) (*s
 	skill := &services.Skill{}
 
 	row := s.db.QueryRowContext(ctx, query, args...)
-	err := row.Scan(
+	if err := row.Scan(
 		&skill.ID,
 		&skill.Name,
 		&skill.Proficiency,
 		&skill.YearsExperience,
-	)
-	if err != nil {
+	); err != nil {
 		if err == sql.ErrNoRows {
 			log.Printf("error: no skill found for the given filters")
 			return nil, err

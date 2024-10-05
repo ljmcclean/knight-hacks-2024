@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"context"
-	"log"
-	"net/http"
 	"knight-hacks-2024/config"
 	"knight-hacks-2024/services"
+	"log"
+	"net/http"
 
 	"github.com/a-h/templ"
 	"golang.org/x/crypto/bcrypt"
@@ -25,7 +25,6 @@ func PostLogin(ctx context.Context, cfg *config.Config, ps services.ProfileServi
 		givenPassword := r.Form.Get("password")
 
 		profile, err := ps.GetProfile(ctx,
-			[]string{"id", "password"},
 			map[string]string{
 				"email": email,
 			})
