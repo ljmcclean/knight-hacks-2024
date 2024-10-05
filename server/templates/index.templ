@@ -1,25 +1,23 @@
 package templates
 
-import "knight-hacks-2024/server/templates/components"
+import "github.com/ljmcclean/knight-hacks-2024/server/templates/components"
 
 templ Index() {
-    @components.Document() {
-        @components.Head("Home Page") {
-            <link rel="stylesheet" href="/assets/css/index.css">
-        }
-        <body>
-            <!-- Website Logo instead of Header -->
-            <div class="logo-container">
-                <img src="/assets/img/KnightHacks-2024-Logo-Transparent.png" alt="Website Logo">
-            </div>
-
-            <!-- New Text Element between Logo and Buttons -->
-            <p class="subtext">Connect with people for your team!</p>
-
-            <div class="button-container">
-                <a href="/login" class="button login-button">Login</a>
-                <a href="/sign-up" class="button signup-button">Sign Up</a>
-            </div>
-        </body>
-    }
+	@components.Document() {
+		@components.Head("Home Page") {
+			<link rel="stylesheet" href="/assets/css/index.css"/>
+		}
+		<body>
+			<!-- Website Logo instead of Header -->
+			<div class="logo-container">
+				<img src="/assets/img/KnightHacks-2024-Logo-Transparent.png" alt="Website Logo"/>
+			</div>
+			<!-- New Text Element between Logo and Buttons -->
+			<p class="subtext">Connect with people for your team!</p>
+			<div class="button-container">
+				<a href="/login" class="button login-button">Login</a>
+				<a href="/sign-up" class="button signup-button">Sign Up</a>
+			</div>
+		</body>
+	}
 }
