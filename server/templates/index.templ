@@ -1,0 +1,14 @@
+package templates
+
+import "knight-hacks-2024/server/templates/components"
+
+templ Index() {
+	@components.Document() {
+		@components.Head("Home Page")
+		<body>
+			<h1>Home Page</h1>
+			<a href="/login">Login</a>
+			<a href="/sign-up">Sign Up</a>
+		</body>
+	}
+}

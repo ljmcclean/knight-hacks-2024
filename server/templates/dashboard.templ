@@ -1,0 +1,23 @@
+package templates
+
+import (
+	"knight-hacks-2024/server/templates/components"
+	"knight-hacks-2024/services"
+)
+
+templ Dashboard(profile *services.Profile) {
+	@components.Document() {
+		@components.Head("Dashboard")
+		<body>
+			<h1>Dashboard</h1>
+			<p>
+				Name: { profile.Name }
+				<br/>
+				Email: { profile.Email }
+			</p>
+			<form action="/logout" method="post">
+				<button>Log out</button>
+			</form>
+		</body>
+	}
+}

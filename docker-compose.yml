@@ -1,0 +1,45 @@
+services:
+  server:
+    build: # .
+      context: .
+      dockerfile: dev.Dockerfile
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+      - SERVER_KILL_TIME=${SERVER_KILL_TIME}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SESSION_LIFESPAN=${SESSION_LIFESPAN}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app # remove on deploy
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+
+  db:
+    container_name: db_container
+    image: postgres:16.4
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+volumes:
+  db_vol:

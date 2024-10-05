@@ -1,0 +1,22 @@
+package templates
+
+import "knight-hacks-2024/server/templates/components"
+
+templ SignUp() {
+@components.Document() {
+@components.Head("Sign Up") {
+}
+
+<body>
+	<form action="/sign-up" method="post">
+		<label for="name">Name: </label>
+		<input name="name" type="text" maxlength="100" minlength="1" />
+		<label for="email">Email: </label>
+		<input name="email" type="text" maxlength="100" minlength="1" />
+		<label for="password">Password: </label>
+		<input name="password" type="password" maxlength="50" minlength="8" />
+		<button>Sign Up</button>
+	</form>
+</body>
+}
+}
