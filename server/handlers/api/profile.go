@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/ljmcclean/knight-hacks-2024/server/auth"
+	"github.com/ljmcclean/knight-hacks-2024/server/handlers"
 	"github.com/ljmcclean/knight-hacks-2024/services"
 )
 
@@ -68,8 +69,6 @@ func PostProfile(ctx context.Context, ps services.ProfileService) http.Handler {
 			return
 		}
 
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"message": "Profile updated successfully"}`))
+		handlers.GetDiscover(ctx).ServeHTTP(w, r)
 	})
 }
