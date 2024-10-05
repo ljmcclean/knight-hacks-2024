@@ -15,8 +15,6 @@
 @font-face{
     font-family: 'sporting-strategy-regular';
     src: url("/assets/fonts/SportingStrategy-BLdgG.ttf") format('ttf');
-    font-weight: normal;
-    font-style: normal;
 }
 
 body {
@@ -24,8 +22,7 @@ body {
 }
 
 .content {
-    display: flex;
-
+    /* display: flex; */
 }
 
 #sidebar {
@@ -37,10 +34,13 @@ body {
     background: white;
     color: var(--clr-txt);
     font-family:'sporting-strategy-regular';
+    position: fixed;
 }
 
 .main-section {
     color: #333;
+    width: 80%;
+    margin-left: auto;
 }
 
 #profile-name {
@@ -60,11 +60,48 @@ body {
 }
 
 #discover-search {
-    width: 60rem;
+    width: 63rem;
     margin: 1rem;
     padding: 0.8rem 1.25rem;
     border: none;
     border-radius: 1rem;
     background: #333;
     font-size: 1.5rem;
+}
+
+#search-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+#search-btn:hover {
+    cursor: pointer;
+}
+
+#projs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.proj-tile {
+    background: #555;
+    width: 15rem;
+    height: 15rem;
+}
+
+.proj-name {
+    font-size: 2rem;
+}
+
+.proj-loca {
+    font-size: 1.25rem;
+}
+
+.proj-desc {
+    font-size: 0.75rem;
 }
