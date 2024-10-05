@@ -3,10 +3,11 @@
   color-scheme: light dark;
 
   /* Color Palette */
-  --clr-txt: light-dark(#080809, #f8f8f8);
-  --clr-bg: light-dark(#f8f8f8, #080809);
-  --clr-orange: #ec844c;
-  --clr-red: #dc4454;
+  --clr-menu: #010409; /* may not use */
+  --clr-txt-main:#d9355c;
+  --clr-txt-second:#f88344;
+  --clr-bg-dark: #1B1212;
+  --clr-bg-light: #303030;
 
   /* Font Sizes */
   --fs-s: clamp(1rem, 3vw, 1.5rem);

@@ -5,16 +5,28 @@ import "github.com/ljmcclean/knight-hacks-2024/server/templates/components"
 templ Login() {
 @components.Document() {
 @components.Head("Login") {
+	<link rel="stylesheet" href="/assets/css/login.css"/>
 }
 
-<body>
-	<form action="/login" method="post">
-		<label for="email">Email: </label>
-		<input name="email" type="text" maxlength="100" minlength="1" />
-		<label for="password">Password: </label>
-		<input name="password" type="password" maxlength="50" minlength="8" />
-		<button>Log In</button>
+<body class="container">
+<div class="logo-container">
+	<img src="/assets/img/KnightHacks-2024-Logo-Transparent.png" alt="Website Logo"/>
+</div>
+<div class="content-box">
+	<form class="form" action="/login" method="post">
+		<div>
+			<div class="internal-container">
+				<label class="email-label" for="email">Email: </label>
+				<label class="password-label" for="password">Password: </label>
+			</div>
+			<div class="internal-container">
+				<input class="email-input" name="email" type="text" maxlength="100" minlength="1" />
+				<input class="password-input" name="password" type="password" maxlength="50" minlength="8" />
+			</div>
+		</div>
+		<button class="button">Log In</button>
 	</form>
+</div>
 </body>
 }
 }
