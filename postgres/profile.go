@@ -24,9 +24,9 @@ var validProfileColumns = map[string]bool{
 func (s *postgreSQL) PostProfile(ctx context.Context, profile *services.Profile) error {
 	query := `
 	INSERT INTO profile (name, email, password, description, location, skills, project_ids)
-	VALUES ($1, $2, $3, $4, $5, $6, $7);`
+	VALUES ($1, $2, $3, $4, $5, $6);`
 
-	if _, err := s.db.ExecContext(ctx, query, profile.Name, profile.Email, profile.Password, profile.Description, profile.Location, "{"+strings.Join(profile.Skills, ", ")+"}", "{"+strings.Join(profile.Projects, ", ")+"}"); err != nil {
+	if _, err := s.db.ExecContext(ctx, query, profile.Name, profile.Email, profile.Password, profile.Description, profile.Location, "{"+strings.Join(profile.Skills, ", ")+"}"); err != nil {
 		log.Printf("error posting profile to Postgres: %s", err)
 		return err
 	}
@@ -34,8 +34,22 @@ func (s *postgreSQL) PostProfile(ctx context.Context, profile *services.Profile)
 	return nil
 }
 
+func (s *postgreSQL) UpdateProfile(ctx context.Context, profile *services.Profile) error {
+	query := `
+	UPDATE profile
+	SET name = $2, email = $3, password = $4, description = $5, location = $6, skills = $7
+	WHERE id = $1;`
+
+	if _, err := s.db.ExecContext(ctx, query, profile.ID, profile.Name, profile.Email, profile.Password, profile.Description, profile.Location, pq.Array(profile.Skills)); err != nil {
+		log.Printf("error updating profile in Postgres: %s", err)
+		return err
+	}
+
+	return nil
+}
+
 func (s *postgreSQL) GetProfile(ctx context.Context, filter map[string]string) (*services.Profile, error) {
-	query := `SELECT id, name, email, description, location, password, skills, project_ids FROM profile`
+	query := `SELECT id, name, email, description, location, password, skills FROM profile`
 
 	conditions := []string{}
 	var args []interface{}
@@ -63,7 +77,6 @@ func (s *postgreSQL) GetProfile(ctx context.Context, filter map[string]string) (
 		&profile.Location,
 		&profile.Password,
 		pq.Array(&profile.Skills),
-		pq.Array(&profile.Projects),
 	); err != nil {
 		if err == sql.ErrNoRows {
 			log.Printf("error: no profile found for the given filters")

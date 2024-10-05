@@ -14,10 +14,10 @@ type Profile struct {
 	Password    string    `json:"password"`
 	Location    string    `json:"location"`
 	Skills      []string  `json:"skills"`
-	Projects    []string  `json:"projects"`
 }
 
 type ProfileService interface {
 	PostProfile(context.Context, *Profile) error
+	UpdateProfile(context.Context, *Profile) error
 	GetProfile(ctx context.Context, filter map[string]string) (*Profile, error)
 }

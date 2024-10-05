@@ -5,6 +5,5 @@ CREATE TABLE IF NOT EXISTS profile (
   description varchar(500) NOT NULL,
   password text NOT NULL,
   location varchar(150) NOT NULL,
-  skills varchar(60)[],
-  project_ids integer[]
+  skills varchar(60)[]
 );
