@@ -1,0 +1,17 @@
+:root {
+  
+    /* Color Palette */
+    --clr-txt: light(#080809);
+    --clr-bg: light(#f8f8f8);
+    --clr-p: #f9a648;
+    --clr-a: #f0f;
+  
+    /* Font Sizes */
+    --fs-s: clamp(1rem, 3vw, 1.5rem);
+    --fs-l: clamp(2.5rem, 10vw, 5rem);
+    --fs-xl: clamp(2rem, 18vw, 10rem);
+  }
+
+body {
+    background: #FF89FF;
+}
